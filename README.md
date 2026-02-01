@@ -8,4 +8,13 @@ float = decimal (single precision)
 double = decimal (double precision)
 char  = Single Unicode character
 boolean = true or false
-string = "StringValue" (Strings can ONLY be called through for example print functions)
+String = "StringValue" 
+
+IF statements are statements that will only do what you tell them if a certain condition you set was made.
+
+Else statements are CONNECTED AND RELIANT on if statements to exist and will only do what you till them if the if 
+statement's condition wasn't met.
+
+Else-If statements are basically if statements connected to if statements. where you can set a NEW condition that does
+something different.
+
