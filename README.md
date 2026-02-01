@@ -18,3 +18,6 @@ statement's condition wasn't met.
 Else-If statements are basically if statements connected to if statements. where you can set a NEW condition that does
 something different.
 
+Methods are functions that are basically just huge variables that store data and all sorts of info you need. they're
+useful as shit.
+
