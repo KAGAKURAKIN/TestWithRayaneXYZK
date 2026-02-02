@@ -1,63 +1,50 @@
 import java.util.Scanner;
 
+void main() throws InterruptedException {
+    Scanner sc = new Scanner(System.in);
+    int quantity;
 
-
-public static String Name(Scanner sc) {
-
-        System.out.println("What is your name? ");
-        return sc.nextLine();
-}
-
-public static int Age(Scanner sc) {
     while(true){
-        System.out.println("What is your age? ");
-        String input = sc.nextLine();
+        System.out.println("Choose an item (pizza or bread)");
+        String choice = sc.nextLine();
 
-        try {
-            return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            System.out.println("Please enter a valid age");
+        double price;
+        String itemname;
+
+        if (choice.equalsIgnoreCase("pizza")){
+            price = 15.99;
+            itemname = "pizza";
+
+        } else if (choice.equalsIgnoreCase("bread")){
+            price = 5.99;
+            itemname = "bread";
+        } else  {
+            System.out.println("Invalid choice");
+            continue;
         }
+
+
+        System.out.println(itemname + " Costs $" + price);
+        System.out.println("How much do you want?");
+
+        if (sc.hasNextInt()){
+            quantity = sc.nextInt();
+            sc.nextLine();
+        } else {
+            System.out.println("Invalid choice");
+            sc.nextLine();
+            continue;
+        }
+        double total = quantity * price;
+        System.out.println("Total Costs $" + total + " Are you sure? (yes/no)");
+        String answer = sc.nextLine();
+
+        if (answer.equalsIgnoreCase("yes")){
+            System.out.println("Thank you for using our service, you bought $" + total + " Worth of " + itemname + ".");
+            break;
+        } else {
+            System.out.println("Rechoose please.");
+        }
+
     }
 }
-
-public static String Password(Scanner sc) {
-        System.out.println("What is your password? ");
-        return sc.nextLine();
-}
-
-Scanner sc = new Scanner(System.in);
-
-void main() {
-
-    String name, password, ans;
-    int age;
-
-    do {
-
-        name = Name(sc);
-
-        age = Age(sc);
-
-        if (age < 13) {
-            System.out.println("you're too young to use this program");
-            System.exit(0);
-        }
-
-        password = Password(sc);
-
-        System.out.println("Are you sure? (yes/no) ");
-        ans = sc.nextLine();
-
-        if (!ans.equalsIgnoreCase("yes")) {
-            System.out.println("Re-enter the info please.\n");
-        }
-
-    } while (!ans.equalsIgnoreCase("yes"));
-
-    System.out.println("You are " + name + " And You are " + age + " Years old.");
-
-
-    sc.close();
-}
-
